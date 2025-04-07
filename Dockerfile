@@ -4,5 +4,5 @@ RUN apt install -y git
 RUN apt install -y vim
 RUN apk add --no-cache ant
 RUN ant
-RUN git clone https://github.com/FursevichYury/Java_exam.git Exam_1
+RUN git clone https://github.com/FursevichYury/Projekt-07-04-2025.git Project-main
 CMD ["bash"]
