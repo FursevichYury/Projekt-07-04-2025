@@ -1,37 +1,20 @@
-<?xml version="1.0"?>
-<project name="Project-main" default="dist" basedir=".">
+<project>
 
-    <!-- Определение свойств -->
-    <property name="src.dir" value="src"/>
-    <property name="build.dir" value="build"/>
-    <property name="classes.dir" value="${build.dir}/classes"/>
-    <property name="jar.dir" value="${build.dir}/jar"/>
-    <property name="main-class" value="Main"/>
+	<target name="compile">
+		<mkdir dir="classes"/>
+		<javac srcdir="src" destdir="classes"/>
+	</target>
 
-    <!-- Очистка ранее построенных файлов -->
-    <target name="clean">
-        <delete dir="${build.dir}"/>
-    </target>
+	<target name="jar">
+		<mkdir dir="jar"/>
+		<jar destfile="jar/Main.jar" basedir="classes">
+		<manifest>
+			<attribute name="Main-Class" value="Main"/>
+		</manifest>
+		</jar>
+	</target>
 
-    <!-- Компиляция исходников -->
-    <target name="compile" depends="clean">
-        <mkdir dir="${classes.dir}"/>
-        <javac srcdir="${src.dir}" destdir="${classes.dir}" includeantruntime="false"/>
-    </target>
-
-    <!-- Упаковка классов в JAR-файл -->
-    <target name="jar" depends="compile">
-        <mkdir dir="${jar.dir}"/>
-        <jar destfile="${jar.dir}/${ant.project.name}.jar" basedir="${classes.dir}">
-            <manifest>
-                <attribute name="Main-Class" value="${main-class}"/>
-            </manifest>
-        </jar>
-    </target>
-
-    <!-- Основная цель сборки -->
-    <target name="dist" depends="jar">
-        <echo message="Проект успешно упакован в ${jar.dir}/${ant.project.name}.jar"/>
-    </target>
-
+	<target name="run">
+		<java jar="jar/Main.jar" fork="true"/>
+	</target>
 </project>
