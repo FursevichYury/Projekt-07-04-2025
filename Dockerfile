@@ -13,4 +13,4 @@ WORKDIR /ProjectMain
 
 RUN ant
 
-CMD ["java", "-jar", "/app/target/main.jar"]
+CMD ["java", "-jar", "/app/target/Main.jar"]
