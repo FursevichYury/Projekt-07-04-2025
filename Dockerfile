@@ -11,6 +11,6 @@ RUN git clone https://github.com/FursevichYury/Projekt-07-04-2025.git ProjectMai
 
 WORKDIR /ProjectMain
 
-RUN ant
+RUN ant compile jar
 
-CMD ["java", "-jar", "/app/target/Main.jar"]
+CMD ["java", "-jar", "/app/build/jar/Main.jar"]
