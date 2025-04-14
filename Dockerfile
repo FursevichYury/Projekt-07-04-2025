@@ -17,4 +17,4 @@ WORKDIR /ProjectMain
 RUN ant
 
 
-CMD ["java", "-jar", "/clone1/build/jar/Main.jar"]
+CMD ["java", "-jar", "/ProjectMain/build/jar/Main.jar"]
